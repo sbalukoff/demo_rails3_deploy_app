@@ -1,4 +1,7 @@
 DemoRails3DeployApp::Application.routes.draw do
+  get "home/index"
+  root :controller => "home", :action => "index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
