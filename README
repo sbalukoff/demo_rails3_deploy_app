@@ -1,1 +1,5 @@
-This is a demo Rails 3 project used to exmplain simple deployments.
+This is a demo Rails 3 project used to test simple deployments and Cap files for various customers.  It is using:
+
+* Rails 3
+* Bundler
+* RVM
