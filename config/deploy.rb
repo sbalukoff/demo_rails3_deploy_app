@@ -21,6 +21,13 @@ set :rvm_type, :system
 #  'GEM_PATH'     => '/usr/local/rvm/gems/ree-1.8.7-2010.02',
 #}
 
+# Server Settings
+# Comment this out if you're using Multistage support.
+set :server_name, "___.blueboxgrid.com"
+role :app, server_name
+role :web, server_name
+role :db,  server_name, :primary => true
+
 # Application Settings
 set :application, "APP NAME"
 set :deploy_to, "/home/deploy/rails_apps/#{application}"
