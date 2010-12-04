@@ -4,3 +4,4 @@ production:
   username: demo_user
   password: 
   host: localhost
+  encoding: utf8
