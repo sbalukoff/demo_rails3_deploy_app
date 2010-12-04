@@ -11,30 +11,30 @@ require "bundler/capistrano"
 # RVM Settings
 # Use either the latest RVM settings, or the legacy settings depending on your local RVM version.
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-require "rvm/capistrano"
-set :rvm_ruby_string, "ree-1.8.7-2010.02"
-set :rvm_type, :system
-# set :default_environment, {
-#  'PATH' => "/usr/local/rvm/gems/ree-1.8.7-2010.02/bin:/usr/local/rvm/bin:/bin:$PATH",
-#  'RUBY_VERSION' => 'ree',
-#  'GEM_HOME'     => '/usr/local/rvm/gems/ree-1.8.7-2010.02',
-#  'GEM_PATH'     => '/usr/local/rvm/gems/ree-1.8.7-2010.02',
-#}
+#require "rvm/capistrano"
+#set :rvm_ruby_string, "ree-1.8.7-2010.02"
+#set :rvm_type, :system
+set :default_environment, {
+  'PATH' => "/usr/local/rvm/gems/ree-1.8.7-2010.02/bin:/usr/local/rvm/bin:/bin:$PATH",
+  'RUBY_VERSION' => 'ree',
+  'GEM_HOME'     => '/usr/local/rvm/gems/ree-1.8.7-2010.02',
+  'GEM_PATH'     => '/usr/local/rvm/gems/ree-1.8.7-2010.02',
+}
 
 # Server Settings
 # Comment this out if you're using Multistage support.
 set :user, "deploy"
-set :server_name, "___.blueboxgrid.com"
+set :server_name, "app01.c44031.blueboxgrid.com"
 role :app, server_name
 role :web, server_name
 role :db,  server_name, :primary => true
 
 # Application Settings
-set :application, "APP NAME"
+set :application, "demo"
 set :deploy_to, "/home/deploy/rails_apps/#{application}"
 
 # Repo Settings
-set :repository,  "git@github.com:/"
+set :repository,  "git://github.com/blueboxjesse/demo_rails3_deploy_app.git"
 set :scm, "git"
 set :checkout, 'export'
 
@@ -84,3 +84,4 @@ namespace :deploy do
     end
   end
 end
+
