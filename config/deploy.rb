@@ -23,6 +23,7 @@ set :rvm_type, :system
 
 # Server Settings
 # Comment this out if you're using Multistage support.
+set :user, "deploy"
 set :server_name, "___.blueboxgrid.com"
 role :app, server_name
 role :web, server_name
