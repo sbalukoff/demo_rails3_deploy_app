@@ -24,7 +24,7 @@ set :default_environment, {
 # Server Settings
 # Comment this out if you're using Multistage support.
 set :user, "deploy"
-set :server_name, "app01.c44031.blueboxgrid.com"
+set :server_name, "app01.demo.blueboxgrid.com"
 role :app, server_name
 role :web, server_name
 role :db,  server_name, :primary => true
@@ -41,6 +41,7 @@ set :checkout, 'export'
 # General Settings
 default_run_options[:pty] = true
 set :keep_releases, 5
+set :use_sudo, false
 
 # Hooks
 after "deploy", "deploy:cleanup"
