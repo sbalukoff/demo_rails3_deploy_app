@@ -10,16 +10,11 @@ require "bundler/capistrano"
 
 # RVM Settings
 # Use either the latest RVM settings, or the legacy settings depending on your local RVM version.
+# Must have latest version of RVM as of 12/8/2010 to make this work properly.
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-#require "rvm/capistrano"
-#set :rvm_ruby_string, "ree-1.8.7-2010.02"
-#set :rvm_type, :system
-set :default_environment, {
-  'PATH' => "/usr/local/rvm/gems/ree-1.8.7-2010.02/bin:/usr/local/rvm/bin:/bin:$PATH",
-  'RUBY_VERSION' => 'ree',
-  'GEM_HOME'     => '/usr/local/rvm/gems/ree-1.8.7-2010.02',
-  'GEM_PATH'     => '/usr/local/rvm/gems/ree-1.8.7-2010.02',
-}
+require "rvm/capistrano"
+set :rvm_ruby_string, "ruby-1.9.2-p0"
+set :rvm_type, :system
 
 # Server Settings
 # Comment this out if you're using Multistage support.
@@ -81,6 +76,8 @@ namespace :deploy do
     desc "Copies your maintenance from public/maintenance to shared/system/maintenance."
     task :update_maintenance_page, :except => { :no_release => true } do
       run "rm -rf #{shared_path}/system/maintenance/; true"
+      run "mkdir -p #{release_path}/public/maintenance"
+      run "touch #{release_path}/public/maintenance/index.html.disabled"
       run "cp -r #{release_path}/public/maintenance #{shared_path}/system/"
     end
   end
