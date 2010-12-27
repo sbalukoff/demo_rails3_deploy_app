@@ -13,13 +13,13 @@ require "bundler/capistrano"
 # Must have latest version of RVM as of 12/8/2010 to make this work properly.
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"
-set :rvm_ruby_string, "ruby-1.9.2-p0"
+set :rvm_ruby_string, "ruby-1.9.2-p136"
 set :rvm_type, :system
 
 # Server Settings
 # Comment this out if you're using Multistage support.
 set :user, "deploy"
-set :server_name, "app01.demo.blueboxgrid.com"
+set :server_name, "vs115553.blueboxgrid.com"
 role :app, server_name
 role :web, server_name
 role :db,  server_name, :primary => true
@@ -29,7 +29,7 @@ set :application, "demo"
 set :deploy_to, "/home/deploy/rails_apps/#{application}"
 
 # Repo Settings
-set :repository,  "git://github.com/blueboxjesse/demo_rails3_deploy_app.git"
+set :repository,  "git://github.com/blueboxstephen/demo_rails3_deploy_app.git"
 set :scm, "git"
 set :checkout, 'export'
 
