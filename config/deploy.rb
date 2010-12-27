@@ -29,7 +29,7 @@ set :application, "demo"
 set :deploy_to, "/home/deploy/rails_apps/#{application}"
 
 # Repo Settings
-set :repository,  "git://github.com/blueboxstephen/demo_rails3_deploy_app.git"
+set :repository,  "git://github.com/BlueBoxStephen/demo_rails3_deploy_app.git"
 set :scm, "git"
 set :checkout, 'export'
 
